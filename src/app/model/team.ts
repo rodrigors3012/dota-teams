@@ -1,3 +1,7 @@
+import { Hero } from './hero';
+import { Match } from './match';
+import { Player } from './player';
+
 /**
      * Represents a professional Dota 2 team from the OpenDota API. 
      */
@@ -34,6 +38,18 @@ export class Team {
      * Web URL to team logo
      */
     logoUrl: string;
+    /**
+     * This team's players, both active and inactive
+     */
+    players: Array<Player>;
+    /**
+     * The matches this team has played
+     */
+    matches: Array<Match>;
+    /**
+     * This team's hero statistics
+     */
+    heroes: Array<Hero>;
 
     constructor() {}
 }
