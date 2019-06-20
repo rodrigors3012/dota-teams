@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+
+}
+
+tr.hero-row {
+    background-color: whitesmoke;
+}
+
+tr.hero-row > td {
+    border-bottom: 1px solid maroon;
+}

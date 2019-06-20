@@ -1,0 +1,16 @@
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Games Played</th>
+            <th>Games Won</th>
+            <th>Win Percentage</th>
+          </tr>
+        <tr *ngFor="let hero of heroes" class="hero-row">
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.gamesPlayed }}</td>
+          <td>{{ hero.wins }}</td>
+          <td>{{ hero.wins/hero.gamesPlayed*100 + "%" }}</td>
+        </tr>
+      </table>
+</div>

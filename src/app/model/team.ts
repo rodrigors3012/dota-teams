@@ -51,5 +51,5 @@ export class Team {
      */
     heroes: Array<Hero>;
 
-    constructor() {}
+    constructor() { }
 }

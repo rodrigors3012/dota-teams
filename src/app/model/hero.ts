@@ -7,7 +7,7 @@ export class Hero {
      */
     id: number;
     /**
-     * Localied name of this hero
+     * Localized name of this hero
      */
     name: string;
     /**
