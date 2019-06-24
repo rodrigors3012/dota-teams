@@ -7,6 +7,7 @@ import { TeamsApiService } from '../services/teams-api.service';
   templateUrl: './hero-table.component.html',
   styleUrls: ['./hero-table.component.css']
 })
+
 export class HeroTableComponent implements OnInit {
 
   heroes:Array<Hero>;

@@ -47,4 +47,20 @@ export class Match {
      * Path to the opposing team's logo
      */
     opposingTeamLogo: string;
+
+    public didTeamWin(): boolean {
+        return this.radiant ? this.radiantWin : !this.radiantWin;
+    }
+
+    public printDuration(): string {
+        var hours = Math.floor(this.duration / 3600);
+        var minutes = Math.floor((this.duration % 3600) / 60);
+        var seconds = Math.floor((this.duration % 3600) - (minutes * 60));
+        var formatString = `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
+
+        if (hours > 0) {
+            formatString = hours + ":" + formatString;
+        }
+        return formatString;
+    }
 }

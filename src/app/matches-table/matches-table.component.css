@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+
+}
+
+tr.match-row {
+    background-color: whitesmoke;
+}
+
+tr.match-row > td {
+    border-bottom: 1px solid maroon;
+}

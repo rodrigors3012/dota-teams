@@ -1,0 +1,24 @@
+<div>
+  <table>
+      <tr>
+          <th>Match Id</th>
+          <th>Win</th>
+          <th>Side</th>
+          <th>Duration</th>
+          <th>Start Time</th>
+          <th>League Name</th>
+          <th>Opponent Name</th>
+          <th>Cluster</th>
+        </tr>
+      <tr *ngFor="let match of matches" class="match-row">
+        <td>{{match.matchId}}</td>
+        <td>{{match.didTeamWin() ? "Yes" : "No"}}</td>
+        <td>{{match.radiant ? "Radiant" : "Dire"}}</td>
+        <td>{{match.printDuration()}}</td>
+        <td>{{match.startTime.toLocaleString()}}</td>
+        <td>{{match.leagueName}}</td>
+        <td>{{match.opposingTeamName}}</td>
+        <td>{{match.cluster}}</td>
+      </tr>
+    </table>
+</div>
