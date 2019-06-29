@@ -4,7 +4,12 @@
     {{ title }}, a Wrapper for the OpenDota Teams API
   </h1>
 </div>
-<app-player-table></app-player-table>
-<app-matches-table></app-matches-table>
-<app-hero-table></app-hero-table>
-<router-outlet></router-outlet>
+<div style="text-align: :center">
+  <h1>
+    Now Viewing Data for Team Id {{ id }}
+  </h1>
+</div>
+<app-player-table [id]="id"></app-player-table>
+<app-matches-table [id]="id"></app-matches-table>
+<app-hero-table [id]="id"></app-hero-table>
+<router-outlet [id]="id"></router-outlet>

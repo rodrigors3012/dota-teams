@@ -38,6 +38,9 @@ export class Team {
      * Web URL to team logo
      */
     logoUrl: string;
+
+    // These next three are not part of the API response but could be used later. 
+    
     /**
      * This team's players, both active and inactive
      */

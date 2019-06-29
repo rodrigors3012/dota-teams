@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TeamsApiService } from 'src/app/services/teams-api.service';
-import { OnInit } from '@angular/core';
-import { Team } from './model/team';
+import { HeroTableComponent } from './hero-table/hero-table.component';
+import {PlayerTableComponent} from './player-table/player-table.component';
+import {MatchesTableComponent} from './matches-table/matches-table.component';
 
 @Component({
   selector: 'app-root',
@@ -9,25 +9,14 @@ import { Team } from './model/team';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  id = 4;
   title = 'Dota Teams Search';
 
-  constructor(private teamsApi:TeamsApiService)
+  constructor()
   {
     
   }
 
   ngOnInit() {
-    console.log("on init works");
-    this.teamsApi.getTeamById(1838315).subscribe((res) => console.log(res.name));
-    
-    // Imitates a name search
-    var matchingTeams:Team[] = [];
-    this.teamsApi.getTeams().subscribe((res) => 
-    {
-      res.filter((team) => team.name === "Team Secret").forEach((team) => matchingTeams.push(team));
-      console.info(matchingTeams[0].name);
-    });
-
-    this.teamsApi.getTeamHeroes(1838315).subscribe((res) => console.log(res));
   }
 }

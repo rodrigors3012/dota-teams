@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../model/player';
 import { TeamsApiService } from '../services/teams-api.service';
 
@@ -10,12 +10,13 @@ import { TeamsApiService } from '../services/teams-api.service';
 export class PlayerTableComponent implements OnInit {
 
   players:Player[];
+  @Input() id:number;
   constructor(private teamsApi:TeamsApiService) { 
     this.players = new Array<Player>();
   }
 
   ngOnInit() {
-    this.teamsApi.getTeamPlayers(1838315).subscribe((players) => this.players = players);
+    this.teamsApi.getTeamPlayers(this.id).subscribe((players) => this.players = players);
   }
 
 }
