@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { MatchesSerializer } from './matches-serializer';
 import { Match } from '../model/match';
+import { Player } from '../model/player';
+import { PlayersSerializer } from './players-serializer';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,7 @@ export class TeamsApiService {
   url = "https://api.opendota.com/api/teams/";
   private heroesSerializer = new HeroesSerializer();
   private matchesSerializer = new MatchesSerializer();
+  private playersSerializer = new PlayersSerializer();
 
   constructor(private httpClient:HttpClient) { }
 
@@ -42,5 +45,11 @@ export class TeamsApiService {
   {
     return this.httpClient.get<Match[]>(`${this.url}${id}/matches`)
     .pipe(map(data => this.matchesSerializer.fromJson(data)));
+  }
+
+  public getTeamPlayers(id:number): Observable<Player []>
+  {
+    return this.httpClient.get<Player[]>(`${this.url}${id}/players`)
+    .pipe(map(data => this.playersSerializer.fromJson(data)));
   }
 }
