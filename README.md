@@ -1,5 +1,18 @@
 # DotaTeams
 
+This is a simple Angular application that displays data for professional [Dota 2](http://dota2.com/) teams from the [OpenDota API](https://docs.opendota.com/).
+
+# Current Features
+
+Will display the player, match, and hero data for the team by the given id in `app.component.ts`. 
+
+# Planned Features
+
+- Search bar to enter team name that will update the page data. 
+- Better looking CSS.
+- Sorting and filtering functionality for all tables.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## Development server
