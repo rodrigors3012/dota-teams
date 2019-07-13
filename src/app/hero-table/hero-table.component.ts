@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Hero } from '../model/hero';
 import { TeamsApiService } from '../services/teams-api.service';
 
@@ -8,7 +8,7 @@ import { TeamsApiService } from '../services/teams-api.service';
   styleUrls: ['./hero-table.component.css']
 })
 
-export class HeroTableComponent implements OnInit {
+export class HeroTableComponent implements OnChanges {
 
   heroes:Array<Hero>;
   @Input() id:number;
@@ -16,7 +16,7 @@ export class HeroTableComponent implements OnInit {
     this.heroes = new Array<Hero>();
   }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.teamsApi.getTeamHeroes(this.id).subscribe((heroes) => this.heroes = heroes);
   }
 }

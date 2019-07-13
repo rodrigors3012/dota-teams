@@ -7,18 +7,23 @@ import { HeroTableComponent } from './hero-table/hero-table.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatchesTableComponent } from './matches-table/matches-table.component';
 import { PlayerTableComponent } from './player-table/player-table.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroTableComponent,
     MatchesTableComponent,
-    PlayerTableComponent
+    PlayerTableComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

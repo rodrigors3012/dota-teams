@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Match } from '../model/match';
 import { TeamsApiService } from '../services/teams-api.service';
 
@@ -11,7 +11,7 @@ import { TeamsApiService } from '../services/teams-api.service';
 /**
  * This component creates a table of all of the matches played by the team with the given id. 
  */
-export class MatchesTableComponent implements OnInit {
+export class MatchesTableComponent implements OnInit, OnChanges {
 
   matches:Match[];
   @Input() id:number;
@@ -20,6 +20,11 @@ export class MatchesTableComponent implements OnInit {
    }
 
   ngOnInit() {
+    
+  }
+
+  ngOnChanges()
+  {
     this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.matches = matches);
   }
 }
