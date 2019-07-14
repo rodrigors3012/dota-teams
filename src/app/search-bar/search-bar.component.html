@@ -1,4 +1,6 @@
-<form #idForm="ngForm" (ngSubmit)="submitId(idForm)" class="form form-register"> 
-  <input type="text" name="idfield" value="{{id}}" ngModel required/>
-  <input type="submit" value="Enter"/>
-</form>
+<div id="inputForm">
+  <form #idForm="ngForm" (ngSubmit)="submitId(idForm)" class="form form-register"> 
+    <input type="text" name="idfield" value="{{id}}" ngModel required/>
+    <input type="submit" value="Enter"/>
+  </form>
+</div>

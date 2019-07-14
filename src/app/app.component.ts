@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.title = 'Dota Teams Search';
+    this.title = 'Dota Teams';
     this.userDataService.currentTeamId.subscribe(id => this.id = id);
     this.userDataService.currentTeamName.subscribe(name => this.name = name);
   }

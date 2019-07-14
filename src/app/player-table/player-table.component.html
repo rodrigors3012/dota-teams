@@ -13,7 +13,7 @@
         <td>{{ player.accountId }}</td>
         <td>{{ player.gamesPlayed }}</td>
         <td>{{ player.wins }}</td>
-        <td>{{ player.wins/player.gamesPlayed*100 + "%" }}</td>
+        <td>{{ (player.wins/player.gamesPlayed*100).toFixed(2) + "%" }}</td>
         <td>{{ player.isCurrentTeamMember ? "Yes" : "No"}}</td>
       </tr>
     </table>

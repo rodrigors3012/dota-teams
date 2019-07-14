@@ -10,7 +10,7 @@
           <td>{{ hero.name }}</td>
           <td>{{ hero.gamesPlayed }}</td>
           <td>{{ hero.wins }}</td>
-          <td>{{ hero.wins/hero.gamesPlayed*100 + "%" }}</td>
+          <td>{{ (hero.wins/hero.gamesPlayed*100).toFixed(2) + "%" }}</td>
         </tr>
       </table>
 </div>

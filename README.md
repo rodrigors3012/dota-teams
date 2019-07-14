@@ -4,13 +4,13 @@ This is a simple Angular application that displays data for professional [Dota 2
 
 # Current Features
 
-Will display the player, match, and hero data for the team by the given id in `app.component.ts`. 
+Will display the player, match, and hero data for the team with the ID entered in the search bar. Check [OpenDota](https://www.opendota.com/) for team IDs. 
 
 # Planned Features
 
-- Search bar to enter team name that will update the page data. 
-- Better looking CSS.
-- Sorting and filtering functionality for all tables.
+- Angular Material. This should also result in implementation of pagination, sorting, and filtering for all tables. 
+- Different tabs for each of the three tables. 
+- Search by name instead of, or in addition to, team ID.
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
