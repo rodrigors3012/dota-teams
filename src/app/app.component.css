@@ -1,0 +1,12 @@
+.flex-title {
+    display: inline;
+}
+
+h2 {
+    display: inline;
+}
+
+.logo-img {
+    width: 1.5em;
+    background-color: black;
+}

@@ -1,8 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-toolbar></app-toolbar>
-  <h2>
-    Now Viewing Data for {{ name }}
-  </h2>
+<div class="flex-title">
+    <img class="logo-img" src="{{logo}}">
+    <h2>
+      {{ name }} 
+    </h2>
+</div>
+  
 <app-search-bar></app-search-bar>
 <app-player-table [id]="id"></app-player-table>
 <app-matches-table [id]="id"></app-matches-table>
