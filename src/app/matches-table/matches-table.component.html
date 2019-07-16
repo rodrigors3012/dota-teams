@@ -1,24 +1,41 @@
-<div>
-  <table>
-      <tr>
-          <th>Match Id</th>
-          <th>Win</th>
-          <th>Side</th>
-          <th>Duration</th>
-          <th>Start Time</th>
-          <th>League Name</th>
-          <th>Opponent Name</th>
-          <th>Cluster</th>
-        </tr>
-      <tr *ngFor="let match of matches" class="match-row">
-        <td>{{match.matchId}}</td>
-        <td>{{match.didTeamWin() ? "Yes" : "No"}}</td>
-        <td>{{match.radiant ? "Radiant" : "Dire"}}</td>
-        <td>{{match.printDuration()}}</td>
-        <td>{{match.startTime.toLocaleString()}}</td>
-        <td>{{match.leagueName}}</td>
-        <td>{{match.opposingTeamName}}</td>
-        <td>{{match.cluster}}</td>
-      </tr>
-    </table>
-</div>
+<table mat-table [dataSource]="matches">
+
+  <ng-container matColumnDef="matchId">
+    <th mat-header-cell *matHeaderCellDef>Match Id</th>
+    <td *matCellDef="let match">{{match.matchId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="didWin">
+    <th mat-header-cell *matHeaderCellDef>Won?</th>
+    <td *matCellDef="let match">{{match.didTeamWin() ? "Yes" : "No"}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="side">
+    <th mat-header-cell *matHeaderCellDef>Side</th>
+    <td *matCellDef="let match">{{match.radiant ? "Radiant" : "Dire"}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="duration">
+    <th mat-header-cell *matHeaderCellDef>Duration</th>
+    <td *matCellDef="let match">{{match.printDuration()}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="startTime">
+    <th mat-header-cell *matHeaderCellDef>Start Time</th>
+    <td *matCellDef="let match">{{match.startTime.toLocaleString()}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="league">
+    <th mat-header-cell *matHeaderCellDef>League</th>
+    <td *matCellDef="let match">{{(match.leagueName)}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="opponent">
+    <th mat-header-cell *matHeaderCellDef>Opponent</th>
+    <td *matCellDef="let match">{{match.opposingTeamName}}</td>
+  </ng-container>
+
+  <tr mat-header-row
+    *matHeaderRowDef="['matchId','side', 'opponent', 'didWin','startTime', 'league']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['matchId', 'side', 'opponent', 'didWin','startTime', 'league']"></tr>
+</table>

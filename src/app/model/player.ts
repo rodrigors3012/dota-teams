@@ -23,4 +23,9 @@
       * Is this player currently on the team?
       */
      isCurrentTeamMember: boolean;
+
+     public compareCurrentStatus(other: Player)
+     {
+        return (this.isCurrentTeamMember ? (other.isCurrentTeamMember ? 0 : -1): (other.isCurrentTeamMember ? 1 : 0));
+     }
  }

@@ -63,4 +63,9 @@ export class Match {
         }
         return formatString;
     }
+
+    public compareByStartTimeDesc(other: Match)
+    {
+        return other.startTime.getTime() - this.startTime.getTime();
+    }
 }

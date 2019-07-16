@@ -10,14 +10,14 @@ import { UserDataService } from '../services/userdata.service';
 })
 export class PlayerTableComponent implements OnChanges {
 
-  players:Player[];
-  @Input() id:number;
-  constructor(private teamsApi:TeamsApiService, private userData:UserDataService) { 
+  players: Player[];
+  @Input() id: number;
+  constructor(private teamsApi: TeamsApiService, private userData: UserDataService) {
     this.players = new Array<Player>();
   }
 
   ngOnChanges() {
-    this.teamsApi.getTeamPlayers(this.id).subscribe((players) => this.players = players);
+    this.teamsApi.getTeamPlayers(this.id).subscribe((players) => this.players = players.sort((a: Player, b: Player) => a.compareCurrentStatus(b)));
   }
 
 }

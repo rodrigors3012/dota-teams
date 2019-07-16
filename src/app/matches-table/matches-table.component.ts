@@ -21,6 +21,6 @@ export class MatchesTableComponent implements OnChanges {
 
   ngOnChanges()
   {
-    this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.matches = matches);
+    this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.matches = matches.sort((a: Match, b: Match) => a.compareByStartTimeDesc(b)));
   }
 }

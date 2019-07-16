@@ -26,23 +26,7 @@ export class UserDataService {
        this.teamIdSource.next(id);
        this.teamsApi.getTeamById(id).subscribe(team => this.teamNameSource.next(team.name));
        var url = `https://steamcdn-a.akamaihd.net/apps/dota2/images/team_logos/${id}.png`;
-       if (this.imageExists(url))
-       {
-         url = "";
-       }
        this.teamLogoSource.next(url);
      }
    }
-
-   // TODO: Fails because invalid CORS request. May want to handle this somewhere else. 
-   imageExists(url:string)
-   {
-     var http = new XMLHttpRequest();
-     http.open('HEAD', url, false);
-     http.send();
-
-     return http.status != 404;
-   }
-
-   
 }

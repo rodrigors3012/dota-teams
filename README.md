@@ -10,7 +10,7 @@ Will display the player, match, and hero data for the team with the ID entered i
 
 # Planned Features
 
-- Angular Material. This should also result in implementation of pagination, sorting, and filtering for all tables. 
+- Sorting, pagination, and filtering for all columns of all three tables. git 
 - Different tabs for each of the three tables. 
 - Search by name instead of, or in addition to, team ID.
 - Cleanup and documentation. 

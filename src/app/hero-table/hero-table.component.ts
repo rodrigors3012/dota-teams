@@ -17,6 +17,6 @@ export class HeroTableComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.teamsApi.getTeamHeroes(this.id).subscribe((heroes) => this.heroes = heroes);
+    this.teamsApi.getTeamHeroes(this.id).subscribe((heroes) => this.heroes = heroes.sort((a:Hero, b:Hero) => a.compareByName(b)));
   }
 }

@@ -18,4 +18,9 @@ export class Hero {
      * Number of games the team has won with this hero
      */
     wins: number;
+
+    public compareByName(other: Hero)
+    {
+        return this.name.localeCompare(other.name);
+    }
 }
