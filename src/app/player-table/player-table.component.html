@@ -1,20 +1,35 @@
-<div>
-  <table>
-      <tr>
-          <th>Name</th>
-          <th>Account Id</th>
-          <th>Games Won</th>
-          <th>Wins</th>
-          <th>Win Percentage</th>
-          <th>Current Member</th>
-        </tr>
-      <tr *ngFor="let player of players" class="player-row">
-        <td>{{ player.name }}</td>
-        <td>{{ player.accountId }}</td>
-        <td>{{ player.gamesPlayed }}</td>
-        <td>{{ player.wins }}</td>
-        <td>{{ (player.wins/player.gamesPlayed*100).toFixed(2) + "%" }}</td>
-        <td>{{ player.isCurrentTeamMember ? "Yes" : "No"}}</td>
-      </tr>
-    </table>
-</div>
+<table mat-table [dataSource]="players">
+  
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Player Name</th>
+        <td *matCellDef="let player">{{player.name}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="accountId">
+        <th mat-header-cell *matHeaderCellDef>Account Id</th>
+        <td *matCellDef="let player">{{player.accountId}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="gamesPlayed">
+        <th mat-header-cell *matHeaderCellDef>Games Played</th>
+        <td *matCellDef="let player">{{player.gamesPlayed}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="wins">
+        <th mat-header-cell *matHeaderCellDef>Games Won</th>
+        <td *matCellDef="let player">{{player.wins}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="winPercent">
+        <th mat-header-cell *matHeaderCellDef>Win Percentage</th>
+        <td *matCellDef="let player">{{(player.wins/player.gamesPlayed*100).toFixed(2) + "%"}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isCurrent">
+        <th mat-header-cell *matHeaderCellDef>Current Member?</th>
+        <td color="accent" *matCellDef="let player">{{( player.isCurrentTeamMember ? "Yes" : "No")}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'accountId', 'gamesPlayed', 'wins','winPercent', 'isCurrent']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'accountId', 'gamesPlayed', 'wins','winPercent', 'isCurrent']"></tr>
+  </table>

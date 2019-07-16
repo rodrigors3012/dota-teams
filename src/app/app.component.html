@@ -1,17 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }} <br>
-    <span class="subtitle">
-      a wrapper for the OpenDota Teams API
-    </span>
-  </h1>
-</div>
-<div style="text-align:center">
+<app-toolbar></app-toolbar>
   <h2>
     Now Viewing Data for {{ name }}
   </h2>
-</div>
 <app-search-bar></app-search-bar>
 <app-player-table [id]="id"></app-player-table>
 <app-matches-table [id]="id"></app-matches-table>

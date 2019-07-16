@@ -9,6 +9,9 @@ import { MatchesTableComponent } from './matches-table/matches-table.component';
 import { PlayerTableComponent } from './player-table/player-table.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
+import { ToolbarComponent} from './toolbar/toolbar.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
@@ -17,13 +20,16 @@ import { FormsModule } from '@angular/forms';
     HeroTableComponent,
     MatchesTableComponent,
     PlayerTableComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

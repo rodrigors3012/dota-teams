@@ -9,7 +9,7 @@ import { UserDataService } from '../services/userdata.service';
 export class SearchBarComponent implements OnInit {
 
   id:number;
-  constructor(private userDataService:UserDataService) { }
+  constructor(private userDataService:UserDataService) {   }
 
   ngOnInit() {
     this.userDataService.currentTeamId.subscribe(id => this.id = id);

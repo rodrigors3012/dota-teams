@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
 import { Player } from '../model/player';
 import { TeamsApiService } from '../services/teams-api.service';
 import { UserDataService } from '../services/userdata.service';
