@@ -8,7 +8,21 @@
 </div>
   
 <app-search-bar></app-search-bar>
-<app-player-table [id]="id"></app-player-table>
-<app-matches-table [id]="id"></app-matches-table>
-<app-hero-table [id]="id"></app-hero-table>
+<mat-tab-group>
+  <mat-tab label="Players">
+    <ng-template matTabContent>
+        <app-player-table [id]="id"></app-player-table>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Matches">
+    <ng-template matTabContent>
+        <app-matches-table [id]="id"></app-matches-table>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Heroes">
+    <ng-template matTabContent>
+        <app-hero-table [id]="id"></app-hero-table>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
 <router-outlet></router-outlet>

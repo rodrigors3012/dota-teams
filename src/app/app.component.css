@@ -1,9 +1,11 @@
 .flex-title {
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h2 {
-    display: inline;
+    display: flex;
 }
 
 .logo-img {

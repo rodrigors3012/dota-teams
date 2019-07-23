@@ -23,8 +23,8 @@ export class AppComponent {
 
   ngOnInit() {
     this.title = 'Dota Teams';
-    this.userDataService.currentTeamId.subscribe(id => this.id = id);
-    this.userDataService.currentTeamName.subscribe(name => this.name = name);
-    this.userDataService.currentTeamLogo.subscribe(logo => this.logo = logo);
+      this.userDataService.currentTeamId.subscribe(id => this.id = id);
+      this.userDataService.currentTeamName.subscribe(name => this.name = name);
+      this.userDataService.currentTeamLogo.subscribe(logo => this.logo = logo);
   }
 }
