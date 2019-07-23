@@ -9,6 +9,7 @@ import { MatchesSerializer } from './matches-serializer';
 import { Match } from '../model/match';
 import { Player } from '../model/player';
 import { PlayersSerializer } from './players-serializer';
+import { TeamsSerializer } from './teams-serializer';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,13 @@ export class TeamsApiService {
   private heroesSerializer = new HeroesSerializer();
   private matchesSerializer = new MatchesSerializer();
   private playersSerializer = new PlayersSerializer();
+  private teamsSerializer = new TeamsSerializer();
 
   constructor(private httpClient:HttpClient) { }
 
   public getTeams() : Observable<Team[]>
   {
-    return this.httpClient.get<Team[]>(`${this.url}`);
+    return this.httpClient.get<Team[]>(`${this.url}`).pipe(map(data => this.teamsSerializer.fromJson(data)));
   }
 
   public getTeamById(id:number) : Observable<Team>
