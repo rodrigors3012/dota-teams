@@ -1,7 +1,8 @@
   <div id="inputForm">
     <form #idForm="ngForm" (ngSubmit)="submitId(idForm)" class="form form-register"> 
-      <mat-form-field>
-          <input matInput placeholder="Team Name"  type="text" name="nameField" value="{{id}}" ngModel required/>
+      <mat-form-field [floatLabel]="'always'">
+          <input matInput name="nameField"  autofocus ngModel required/>
+          <mat-hint style="color:#f5f5f5">Team Name</mat-hint>
       </mat-form-field>
       <button  mat-raised-button color="accent" type="submit">Enter</button>
     </form>

@@ -1,0 +1,8 @@
+mat-toolbar{
+    display: flex;
+    height: 5em;
+}
+
+app-search-bar {
+    margin-left: 4em;
+}
