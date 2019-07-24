@@ -11,7 +11,7 @@ Will display the player, match, and hero data for the team with the ID entered i
 # Planned Features
 
 - Real-time validation using the team list loaded on init for the search bar.
-- Sorting, pagination, and filtering for all columns of all three tables.  
+- Sorting and filtering for all columns of all three tables.  
 - Cleanup and documentation. 
 
 ## Development server

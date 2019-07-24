@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Match } from '../model/match';
 import { TeamsApiService } from '../services/teams-api.service';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-matches-table',
@@ -11,16 +12,20 @@ import { TeamsApiService } from '../services/teams-api.service';
 /**
  * This component creates a table of all of the matches played by the team with the given id. 
  */
-export class MatchesTableComponent implements OnChanges {
+export class MatchesTableComponent implements OnChanges, OnInit {
 
-  matches:Match[];
   @Input() id:number;
+  dataSource = new MatTableDataSource<Match>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private teamsApi:TeamsApiService) {
-    this.matches = new Array<Match>();
+   }
+
+   ngOnInit() {
+     this.dataSource.paginator = this.paginator;
    }
 
   ngOnChanges()
   {
-    this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.matches = matches.sort((a: Match, b: Match) => a.compareByStartTimeDesc(b)));
+    this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.dataSource.data = matches.sort((a: Match, b: Match) => a.compareByStartTimeDesc(b)));
   }
 }

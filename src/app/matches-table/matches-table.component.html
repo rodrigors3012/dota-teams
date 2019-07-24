@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="matches">
+<table mat-table [dataSource]="dataSource">
 
   <ng-container matColumnDef="matchId">
     <th mat-header-cell *matHeaderCellDef>Match Id</th>
@@ -39,3 +39,5 @@
     *matHeaderRowDef="['matchId','side', 'opponent', 'didWin','startTime', 'league']"></tr>
   <tr mat-row *matRowDef="let row; columns: ['matchId', 'side', 'opponent', 'didWin','startTime', 'league']"></tr>
 </table>
+
+<mat-paginator [pageSizeOptions]="[25, 50, 10, 100, 250, 500]"></mat-paginator>

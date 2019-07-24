@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="players">
+<table mat-table [dataSource]="dataSource">
   
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Player Name</th>
@@ -33,3 +33,4 @@
     <tr mat-header-row *matHeaderRowDef="['name', 'accountId', 'gamesPlayed', 'wins','winPercent', 'isCurrent']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['name', 'accountId', 'gamesPlayed', 'wins','winPercent', 'isCurrent']"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[25, 50, 10]"></mat-paginator>
