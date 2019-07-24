@@ -1,37 +1,37 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource"  matSort (matSortChange)="sortData($event)">
 
   <ng-container matColumnDef="matchId">
-    <th mat-header-cell *matHeaderCellDef>Match Id</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Match Id</th>
     <td *matCellDef="let match">{{match.matchId}}</td>
   </ng-container>
 
   <ng-container matColumnDef="didWin">
-    <th mat-header-cell *matHeaderCellDef>Won?</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Won?</th>
     <td *matCellDef="let match">{{match.didTeamWin() ? "Yes" : "No"}}</td>
   </ng-container>
 
   <ng-container matColumnDef="side">
-    <th mat-header-cell *matHeaderCellDef>Side</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Side</th>
     <td *matCellDef="let match">{{match.radiant ? "Radiant" : "Dire"}}</td>
   </ng-container>
 
   <ng-container matColumnDef="duration">
-    <th mat-header-cell *matHeaderCellDef>Duration</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
     <td *matCellDef="let match">{{match.printDuration()}}</td>
   </ng-container>
 
   <ng-container matColumnDef="startTime">
-    <th mat-header-cell *matHeaderCellDef>Start Time</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
     <td *matCellDef="let match">{{match.startTime.toLocaleString()}}</td>
   </ng-container>
 
   <ng-container matColumnDef="league">
-    <th mat-header-cell *matHeaderCellDef>League</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>League</th>
     <td *matCellDef="let match">{{(match.leagueName)}}</td>
   </ng-container>
 
   <ng-container matColumnDef="opponent">
-    <th mat-header-cell *matHeaderCellDef>Opponent</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Opponent</th>
     <td *matCellDef="let match">{{match.opposingTeamName}}</td>
   </ng-container>
 

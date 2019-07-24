@@ -1,32 +1,32 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
   
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Player Name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Player Name</th>
         <td *matCellDef="let player">{{player.name}}</td>
     </ng-container>
   
     <ng-container matColumnDef="accountId">
-        <th mat-header-cell *matHeaderCellDef>Account Id</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Account Id</th>
         <td *matCellDef="let player">{{player.accountId}}</td>
     </ng-container>
   
     <ng-container matColumnDef="gamesPlayed">
-        <th mat-header-cell *matHeaderCellDef>Games Played</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Games Played</th>
         <td *matCellDef="let player">{{player.gamesPlayed}}</td>
     </ng-container>
     
     <ng-container matColumnDef="wins">
-        <th mat-header-cell *matHeaderCellDef>Games Won</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Games Won</th>
         <td *matCellDef="let player">{{player.wins}}</td>
     </ng-container>
 
     <ng-container matColumnDef="winPercent">
-        <th mat-header-cell *matHeaderCellDef>Win Percentage</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Win Percentage</th>
         <td *matCellDef="let player">{{(player.wins/player.gamesPlayed*100).toFixed(2) + "%"}}</td>
     </ng-container>
 
     <ng-container matColumnDef="isCurrent">
-        <th mat-header-cell *matHeaderCellDef>Current Member?</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Current Member?</th>
         <td color="accent" *matCellDef="let player">{{( player.isCurrentTeamMember ? "Yes" : "No")}}</td>
     </ng-container>
 

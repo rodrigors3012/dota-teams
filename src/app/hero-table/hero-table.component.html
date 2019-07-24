@@ -1,22 +1,22 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Hero Name</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Hero Name</th>
     <td *matCellDef="let hero">{{hero.name}}</td>
   </ng-container>
 
   <ng-container matColumnDef="gamesPlayed">
-    <th mat-header-cell *matHeaderCellDef>Games Played</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Games Played</th>
     <td *matCellDef="let hero">{{hero.gamesPlayed}}</td>
   </ng-container>
 
   <ng-container matColumnDef="wins">
-    <th mat-header-cell *matHeaderCellDef>Wins</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Wins</th>
     <td *matCellDef="let hero">{{hero.wins}}</td>
   </ng-container>
 
   <ng-container matColumnDef="winPercentage">
-    <th mat-header-cell *matHeaderCellDef>Win Percentage</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Win Percentage</th>
     <td *matCellDef="let hero">{{(hero.wins/hero.gamesPlayed*100).toFixed(2) + "%"}}</td>
   </ng-container>
 
