@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Current Features
 
-Will display the player, match, and hero data for the team with the ID entered in the search bar. Check [OpenDota](https://www.opendota.com/) for team IDs. 
+Will display the player, match, and hero data for the team with the name or tag entered in the search bar. 
 
 # Planned Features
 
