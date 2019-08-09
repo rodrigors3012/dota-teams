@@ -8,6 +8,9 @@ import { Team } from '../model/team';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css']
 })
+/**
+ * Form component consisting of a search bar and enter button to search the OpenDota API for team names. 
+ */
 export class SearchBarComponent implements OnInit {
 
   teamList:Team[];
@@ -19,11 +22,15 @@ export class SearchBarComponent implements OnInit {
     this.teamsApiService.getTeams().subscribe(list => this.teamList = list);
   }
 
+  /**
+   * Method called when user presses enter or clicks the enter button on the search bar. 
+   * @param form The form data object. 
+   */
   submitId(form)
   {
     var submitName = form.value.nameField as string;
     var teamId:number = -1;
-    // First check to see if the name matches, then if the tag matches
+    // First check to see if any names match; if no matching name is found, check if any tags match. 
     if (this.teamList.some(team => team.name === submitName))
     {
       var team = this.teamList.find(team => team.name === submitName);

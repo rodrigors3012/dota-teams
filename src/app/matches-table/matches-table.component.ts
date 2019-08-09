@@ -10,31 +10,40 @@ import { MatTableDataSource, MatPaginator, Sort } from '@angular/material';
 })
 
 /**
- * This component creates a table of all of the matches played by the team with the given id. 
+ * Table component of all of the matches played by the team with the given id. 
  */
 export class MatchesTableComponent implements OnChanges, OnInit {
 
-  @Input() id:number;
+  @Input() id: number;
   dataSource = new MatTableDataSource<Match>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private teamsApi:TeamsApiService) {
-   }
 
-   ngOnInit() {
-     this.dataSource.paginator = this.paginator;
-   }
+  constructor(private teamsApi: TeamsApiService) {
+  }
 
-  ngOnChanges()
-  {
+  ngOnInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+
+  /**
+   * What to do when something that this component relies on changes. In this case, it updates the data in the table.
+   */
+  ngOnChanges() {
     this.teamsApi.getTeamMatches(this.id).subscribe((matches) => this.dataSource.data = matches.sort((a: Match, b: Match) => a.compareByStartTimeDesc(b)));
   }
 
+  /**
+   * Sorts the data in the table according to the given column. Supports match ID, win status, Radiant or Dire side, match duration, match start time, league name, or opposing team name. 
+   * @param sort the column to sort by, along with the direction.
+   */
   sortData(sort: Sort) {
     const data = this.dataSource.data;
     if (!sort.active || sort.direction === '') {
       this.dataSource.data = data;
       return;
     }
+
 
     this.dataSource.data = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
@@ -51,6 +60,12 @@ export class MatchesTableComponent implements OnChanges, OnInit {
     });
   }
 
+  /**
+   * A tripartite comparision operator for strings and numbers. 
+   * @param a the first primitive to compare.
+   * @param b the second primitive to compare. 
+   * @param isAsc whether or not the comparision is supposed to be in ascending order, e.g. returning 1 if a < b is ascending.
+   */
   compare(a: number | string | boolean, b: number | string | boolean, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }

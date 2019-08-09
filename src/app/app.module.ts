@@ -34,6 +34,10 @@ import {MaterialModule} from './material.module';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+/**
+ * The base application module. 
+ */
 export class AppModule{ 
   
 }

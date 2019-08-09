@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
+
+/**
+ * Component that creates a title toolbar for the application. 
+ */
 export class ToolbarComponent implements OnInit {
 
   constructor() { }

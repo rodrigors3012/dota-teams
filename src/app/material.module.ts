@@ -26,4 +26,8 @@ import {MatTabsModule} from '@angular/material/tabs';
       MatPaginatorModule
   ]
 })
+
+/**
+ * Module for storing any imports from Angular Material. 
+ */
 export class MaterialModule {}

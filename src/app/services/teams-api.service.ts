@@ -25,33 +25,47 @@ export class TeamsApiService {
   private playersSerializer = new PlayersSerializer();
   private teamsSerializer = new TeamsSerializer();
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public getTeams() : Observable<Team[]>
-  {
+  /**
+   * Retrieves the list of Teams. 
+   */
+  public getTeams(): Observable<Team[]> {
     return this.httpClient.get<Team[]>(`${this.url}`).pipe(map(data => this.teamsSerializer.fromJson(data)));
   }
 
-  public getTeamById(id:number) : Observable<Team>
-  {
+  /**
+   * Retrieves the Team with the given id. 
+   * @param id the Team id. Find on OpenDota website in the URL for each team page. 
+   */
+  public getTeamById(id: number): Observable<Team> {
     return this.httpClient.get<Team>(`${this.url}${id}`);
   }
 
-  public getTeamHeroes(id:number): Observable<Hero[]>
-  {
+  /**
+   * Retrieves the Heroes for the team with the given id. 
+   * @param id the Team id. Find on OpenDota website in the URL for each team page. 
+   */
+  public getTeamHeroes(id: number): Observable<Hero[]> {
     return this.httpClient.get<Hero[]>(`${this.url}${id}/heroes`)
-    .pipe(map(data => this.heroesSerializer.fromJson(data)));
+      .pipe(map(data => this.heroesSerializer.fromJson(data)));
   }
 
-  public getTeamMatches(id:number): Observable<Match []>
-  {
+  /**
+   * Retrieves the Matches for the Team with the given id. 
+   * @param id the Team id. Find on OpenDota website in the URL for each team page. 
+   */
+  public getTeamMatches(id: number): Observable<Match[]> {
     return this.httpClient.get<Match[]>(`${this.url}${id}/matches`)
-    .pipe(map(data => this.matchesSerializer.fromJson(data)));
+      .pipe(map(data => this.matchesSerializer.fromJson(data)));
   }
 
-  public getTeamPlayers(id:number): Observable<Player []>
-  {
+  /**
+   * Retrieves the Players for the Team with the given id. 
+   * @param id the Team id. Find on OpenDota website in the URL for each team page. 
+   */
+  public getTeamPlayers(id: number): Observable<Player[]> {
     return this.httpClient.get<Player[]>(`${this.url}${id}/players`)
-    .pipe(map(data => this.playersSerializer.fromJson(data)));
+      .pipe(map(data => this.playersSerializer.fromJson(data)));
   }
 }
